@@ -1,0 +1,66 @@
+[user]
+	name = Ofer Segev
+	email = ofers@wix.com
+[core]
+	excludesfile = /Users/ofers/.gitignore_global
+[branch "master"]
+	rebase = true
+[branch "upstream"]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[rebase]
+	autoStash = true
+[alias]
+  story = log --graph --abbrev-commit --decorate --date=relative
+  tree1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  tree2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+  tree = !"git tree1"
+  find-release = "!git log --pretty=oneline $1..master | grep Release | tail -1 #"
+  me = log --author="ofers@wix.com"
+
+  st = status
+  s = status
+  a = add
+  ap = add -p
+  d = diff
+  r = reset
+  c = "!git commit -m \"$1\" #"
+  ca = commit -a -m
+  co = checkout
+  b = branch
+  l = !"git tree1"
+  branches = branch -a
+  stashes = stash list
+  pick = cherry-pick
+  cp = cherry-pick
+  discard = "!git checkout -- $1"
+  unstage = "!git reset HEAD \"$1\" #"
+  amend = commit --amend
+  melt = commit --amend --no-edit
+  ignore-locally = update-index --skip-worktree
+  unignore-locally = update-index --no-skip-worktree
+  find-commit = "!git log -S \"$1\" --source --all #"
+  who-deleted = "!git log -1 -- \"$1\" #"
+  who-created = "!git log \"$1\" | grep Author | tail -1 | cut -c 9- && git log --pretty=oneline \"$1\" | tail -1 #"
+
+  
