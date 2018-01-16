@@ -49,7 +49,7 @@
   c = "!git commit -m \"$1\" #"
   ca = commit -a -m
   co = checkout
-  b = branch
+  b = "!git branch && printf \"\n* \" && git rev-parse --abbrev-ref HEAD && printf \"\n\" #"
   l = !"git tree1"
   branches = branch -a
   stashes = stash list
@@ -66,5 +66,5 @@
   who-deleted = "!git log -1 -- \"$1\" #"
   who-created = "!git log \"$1\" | grep Author | tail -1 | cut -c 9- && git log --pretty=oneline \"$1\" | tail -1 #"
   search = "!git log -i -p -S\"$1\" --pretty=oneline #"
-  regex = "!git log -i -p -G$1 --pretty=oneline #"
+  regex = "!git log -ia-p -G$1 --pretty=oneline #"
   
