@@ -40,7 +40,6 @@
   greplog = "!git log --pretty=oneline --grep \"$1\" #"
   me = log --author="ofers@wix.com"
 
-  st = status
   s = status
   a = add
   ap = add -p
@@ -53,6 +52,7 @@
   l = !"git tree1"
   branches = branch -a
   stashes = stash list
+  st = "!git stash push -u -m \"$1\" #"
   pick = cherry-pick
   cp = cherry-pick
   discard = "!git checkout -- $1"
@@ -60,6 +60,7 @@
   untrack = "!git reset HEAD \"$1\" #"
   amend = commit --amend
   melt = commit --amend --no-edit
+  rename = commit --amend
   ignore-locally = update-index --skip-worktree
   unignore-locally = update-index --no-skip-worktree
   find-commit = "!git log -S \"$1\" --source --all #"
