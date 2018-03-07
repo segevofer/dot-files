@@ -53,6 +53,7 @@
   branches = branch -a
   stashes = stash list
   st = "!git stash push -u -m \"$1\" #"
+  sp = "!git stash pop #"
   pick = cherry-pick
   cp = cherry-pick
   discard = "!git checkout -- $1"
