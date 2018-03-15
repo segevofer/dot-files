@@ -49,7 +49,12 @@
   ca = commit -a -m
   co = checkout
   b = "!git branch && printf \"\n* \" && git rev-parse --abbrev-ref HEAD && printf \"\n\" #"
-  l = !"git tree1"
+  l = "!git tree1 #"
+  l1 = "! git log -1 #" 
+  l2 = "! git log -2 #"
+  l3 = "! git log -3 #"
+  l4 = "! git log -4 #"
+  l5 = "! git log -5 #"
   branches = branch -a
   stashes = stash list
   st = "!git stash push -u -m \"$1\" #"
