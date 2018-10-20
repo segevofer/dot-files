@@ -61,7 +61,8 @@
   sp = "!git stash pop #"
   pick = cherry-pick
   cp = cherry-pick
-  discard = "!git checkout -- $1"
+  discard = "!git checkout -- \"$1\" #"
+  pf = "!git push --force #"
   unstage = "!git reset HEAD \"$1\" #"
   untrack = "!git reset HEAD \"$1\" #"
   amend = commit --amend
@@ -75,4 +76,6 @@
   who-created = "!git log \"$1\" | grep Author | tail -1 | cut -c 9- && git log --pretty=oneline \"$1\" | tail -1 #"
   search = "!git log -i -p -S\"$1\" --pretty=oneline #"
   regex = "!git log -ia-p -G$1 --pretty=oneline #"
+  rc = "!git rebase --continue #"
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
   
