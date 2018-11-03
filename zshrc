@@ -9,6 +9,10 @@ setopt share_history
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
+export PATH=/usr/local/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"Copy
+
 
 # Local aliases
 alias ll='ls -la'
@@ -32,3 +36,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
   # Set Spaceship ZSH as a prompt
   autoload -U promptinit; promptinit
   prompt spaceship
+
+
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+echo '' && echo Welcome back Ofer
