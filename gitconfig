@@ -36,6 +36,7 @@
   tree2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
   tree = !"git tree1"
   find-release = "!git log --pretty=oneline $1..master | grep Release | tail -1 #"
+  find-rc = "!git tag --contains \"$1\" #"
   grep-log = "!git log --pretty=oneline --grep \"$1\" #" 
   greplog = "!git log --pretty=oneline --grep \"$1\" #"
   me = log --author="ofers@wix.com"
