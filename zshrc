@@ -18,6 +18,7 @@ export PATH="$PYENV_ROOT/shims:$PATH"Copy
 alias ll='ls -la'
 alias ws='cd ~/Workspace'
 alias santa='ws && cd santa && sudo yarn ssl showstock'
+alias pyb='pull && yarn && yarn build'
 alias online='ws && cd santa-editor-online-preview && grunt register && ws && cd santa-online-preview && grunt register && sudo yarn start'
 alias update='ws && cd santa && pull && yarn && ws && cd santa-editor && pull && yarn && ws && cd santa && yarn build && ws && cd santa-editor && yarn build'
 alias build='ws && cd santa && yarn && yarn build && ws && cd santa-editor && yarn && yarn build'
@@ -40,5 +41,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 echo '' && echo Welcome back Ofer
