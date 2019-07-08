@@ -14,7 +14,10 @@ export PATH=/usr/local/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"Copy
 export DISABLE_AUTO_TITLE="true"
-export PS1="%d 🥑 "
+
+# export PS1="%d 🥑 "
+source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
+PROMPT='%d %b$(git_super_status) 🥑 '
 
 DISABLE_AUTO_TITLE="true"
 
@@ -31,7 +34,7 @@ alias ll='ls -la'
 
 # zsh configuration:
 if [ $ITERM_SESSION_ID ]; then
-  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
 . /usr/local/etc/profile.d/z.sh

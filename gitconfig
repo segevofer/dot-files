@@ -37,6 +37,7 @@
   tree = !"git tree1"
   grep-log = "!git log --pretty=oneline --grep \"$1\" #" 
   greplog = "!git log --pretty=oneline --grep \"$1\" #"
+  tmp = "!git commit --no-verify -m \"TMP\" #"
   me = log --author="ofs@google.com"
 
   s = status
@@ -67,6 +68,7 @@
   amend = commit --amend
   melt = commit --amend --no-edit
   rename = commit --amend
+  rephrase = "!git commit -F .git/COMMIT_EDITMSG -e #"
   contains = "!git branch -r --contains \"$1\" #"
   ignore-locally = update-index --skip-worktree
   unignore-locally = update-index --no-skip-worktree
@@ -76,5 +78,5 @@
   search = "!git log -i -p -S\"$1\" --pretty=oneline #"
   regex = "!git log -ia-p -G$1 --pretty=oneline #"
   rc = "!git rebase --continue #"
-	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
+  stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
   
