@@ -1,6 +1,5 @@
 #!/bin/bash
 cat ~/.gitconfig > gitconfig
-cat ~/.bash_profile > bash_profile
 cat ~/.zshrc > zshrc
 
 git add .
