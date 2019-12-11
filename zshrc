@@ -10,6 +10,7 @@ bindkey '\e[B' history-search-forward
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"Copy
@@ -28,6 +29,7 @@ function precmd () {
 
 # Local aliases
 alias ll='ls -la'
+alias reload='source ~/.zshrc'
 
 # import local work aliases
 . /Users/$USER/.work.zshrc
@@ -43,3 +45,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 echo Welcome back Ofer
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ofs/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ofs/workspace/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc'; fi
