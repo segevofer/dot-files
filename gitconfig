@@ -3,6 +3,7 @@
 	email = ofs@google.com
 [core]
 	excludesfile = /Users/ofs/.gitignore_global
+	editor = /usr/bin/vim
 [branch "master"]
 	rebase = true
 [branch "upstream"]
@@ -55,12 +56,14 @@
   l3 = "! git log -3 #"
   l4 = "! git log -4 #"
   l5 = "! git log -5 #"
+  ll = "! git log origin/master..@ --oneline --graph #"
   branches = branch -a
   stashes = stash list
   st = "!git stash push -u -m \"$1\" #"
   sp = "!git stash pop #"
   pick = cherry-pick
   cp = cherry-pick
+  ds = diff --staged
   cpc = cherry-pick --continue
   discard = "!git checkout -- \"$1\" #"
   pf = "!git push --force #"
@@ -80,5 +83,6 @@
   search = "!git log -i -p -S\"$1\" --pretty=oneline #"
   regex = "!git log -ia-p -G$1 --pretty=oneline #"
   rc = "!git rebase --continue #"
+  ri = "!git rebase origin/master -i #"
   stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
   

@@ -51,3 +51,11 @@ if [ -f '/Users/ofs/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/o
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc'; fi
+[[ -e /Users/ofs/mdproxy/data/mdproxy_zshrc ]] && source /Users/ofs/mdproxy/data/mdproxy_zshrc # MDPROXY-ZSHRC
+source ~/venv/bin/activate
+export PATH="$HOME/.nodenv/bin:$PATH"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/shims:$PATH"
