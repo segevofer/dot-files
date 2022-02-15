@@ -69,6 +69,7 @@
   pf = "!git push --force #"
   unstage = "!git reset HEAD \"$1\" #"
   untrack = "!git reset HEAD \"$1\" #"
+  drop = "!git reset @~ --hard #"
   amend = commit --amend
   melt = commit --amend --no-edit
   files = "!git show @ --name-only #"
