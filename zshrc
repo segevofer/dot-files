@@ -1,61 +1,54 @@
-# Share history between terminals
-setopt inc_append_history
-setopt share_history
+# source ~/venv/bin/activate
+# export PATH=$PATH:~/venv/bin/
 
-# Show history when clicking up/down
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
+# alias python=python3
 
-# ctrl + arrow
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"Copy
-export DISABLE_AUTO_TITLE="true"
-
-# export PS1="%d 🥑 "
-source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
-PROMPT='%d %b$(git_super_status) 🥑 '
-
-DISABLE_AUTO_TITLE="true"
-
-function precmd () {
-  window_title="\033]0;${PWD##*/}\007"
-  echo -ne "$window_title"
-}
-
-# Local aliases
-alias ll='ls -la'
-alias reload='source ~/.zshrc'
-
-# import local work aliases
-. /Users/$USER/.work.zshrc
-
-# zsh configuration:
-if [ $ITERM_SESSION_ID ]; then
-   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-. /usr/local/etc/profile.d/z.sh
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Customize to your needs...
+export PATH=/opt/homebrew/bin:$PATH
+# export PATH=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH
 
-echo Welcome back Ofer
+export PATH="$HOME/.nodenv/shims:$PATH"
+export PATH="/Users/ofs/.pyenv:$PATH"
+eval "$(pyenv init --path)"
+source ~/venv/bin/activate
+
+# Work related alias and shortcuts
+. ~/.work.zshrc
+
+# alias
+alias reload='source ~/.zshrc'
+
+# z jump around - https://github.com/rupa/z
+. /usr/local/etc/z.sh
+
+# zsh-git-prompt - https://github.com/olivierverdier/zsh-git-prompt
+source "/opt/homebrew/share/zsh-git-prompt/zsh-git-prompt.sh"
+PROMPT='%d %b$(git_super_status) 🥑 '
+
+# zsh-autosuggestions - https://github.com/zsh-users/zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting - https://github.com/zsh-users/zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# python venv configuration
+source ~/venv/bin/activate
+export PATH=$PATH:~/venv/bin/
+
+# git-friendly shell completion
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
+autoload -Uz _git && _git
+compdef __git_branch_names branch
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ofs/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ofs/workspace/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ofs/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ofs/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ofs/workspace/google-cloud-sdk/completion.zsh.inc'; fi
-[[ -e /Users/ofs/mdproxy/data/mdproxy_zshrc ]] && source /Users/ofs/mdproxy/data/mdproxy_zshrc # MDPROXY-ZSHRC
-source ~/venv/bin/activate
-export PATH="$HOME/.nodenv/bin:$PATH"
+if [ -f '/Users/ofs/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ofs/google-cloud-sdk/completion.zsh.inc'; fi
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/.pyenv/shims:$PATH"
+echo Welcome back Ofer
