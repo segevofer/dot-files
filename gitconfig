@@ -33,12 +33,14 @@
 	autoStash = true
 [alias]
   story = log --graph --abbrev-commit --decorate --date=relative
+  graph = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   tree1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
   tree2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
   tree = !"git tree1"
   grep-log = "!git log --pretty=oneline --grep \"$1\" #" 
   greplog = "!git log --pretty=oneline --grep \"$1\" #"
   tmp = "!git commit --no-verify -m \"TMP\" #"
+  at = "!git add . && git commit --no-verify -m \"TMP\" #"
   me = log --author="ofs@google.com"
 
   s = status
@@ -85,6 +87,7 @@
   regex = "!git log -ia-p -G$1 --pretty=oneline #"
   rc = "!git rebase --continue #"
   ri = "!git rebase origin/master -i #"
+  fri = "!git fetch && git rebase origin/master -i #"
   stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
   
 

@@ -1,18 +1,21 @@
-# source ~/venv/bin/activate
 # export PATH=$PATH:~/venv/bin/
 
 # alias python=python3
+# alias chromium-browser=chromium
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  prompt paradox
 fi
 
 # Customize to your needs...
 export PATH=/opt/homebrew/bin:$PATH
 # export PATH=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH
 
-export PATH="$HOME/.nodenv/shims:$PATH"
+export PATH="$HOME/.npm/bin:$PATH"
+
+# export PATH="$HOME/.nodenv/shims:$PATH"
 export PATH="/Users/ofs/.pyenv:$PATH"
 eval "$(pyenv init --path)"
 source ~/venv/bin/activate
@@ -50,5 +53,17 @@ if [ -f '/Users/ofs/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ofs/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ofs/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ofs/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+
+
 
 echo Welcome back Ofer
