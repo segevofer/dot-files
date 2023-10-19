@@ -1,6 +1,6 @@
-# export PATH=$PATH:~/venv/bin/
-
-# alias python=python3
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+alias python=python3
 # alias chromium-browser=chromium
 
 # Source Prezto.
@@ -11,14 +11,16 @@ fi
 
 # Customize to your needs...
 export PATH=/opt/homebrew/bin:$PATH
-# export PATH=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH
 
 export PATH="$HOME/.npm/bin:$PATH"
 
 # export PATH="$HOME/.nodenv/shims:$PATH"
 export PATH="/Users/ofs/.pyenv:$PATH"
 eval "$(pyenv init --path)"
-source ~/venv/bin/activate
+# source ~/venv/bin/activate
+
+# python venv configuration
+# export PATH=$PATH:~/venv/bin/
 
 # Work related alias and shortcuts
 . ~/.work.zshrc
@@ -38,10 +40,6 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # zsh-syntax-highlighting - https://github.com/zsh-users/zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# python venv configuration
-source ~/venv/bin/activate
-export PATH=$PATH:~/venv/bin/
 
 # git-friendly shell completion
 fpath=($(brew --prefix)/share/zsh/functions $fpath)
@@ -63,7 +61,13 @@ export NVM_DIR="$HOME/.nvm"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 
-
-
-
 echo Welcome back Ofer
+
+# Created by `pipx` on 2023-06-04 08:21:32
+export PATH="$PATH:/Users/ofs/.local/bin"
+
+# Created by `pipx` on 2023-06-04 08:21:40
+export PATH="$PATH:/Users/ofs/Library/Python/3.10/bin"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
