@@ -1,2 +1,1 @@
-# gitconfig
-my gitconfig
+my config, dot files etc
